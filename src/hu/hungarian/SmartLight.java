@@ -2,6 +2,8 @@ package hu.hungarian;
 
 import javafx.scene.paint.Color;
 
+import static javafx.scene.paint.Color.BLACK;
+import static javafx.scene.paint.Color.DARKGRAY;
 import static javafx.scene.paint.Color.WHITESMOKE;
 
 public class SmartLight {
@@ -49,7 +51,16 @@ public class SmartLight {
     }
 
     public void setLightPercent(short lightPercent) {
-        this.lightPercent = lightPercent;
+
+        if(lightPercent >=100){
+            this.lightPercent = 100;
+        }
+        else if(lightPercent <=0){
+            this.lightPercent = 0;
+        }
+        else{
+            this.lightPercent = lightPercent;
+        }
     }
 
     public Color getColor() {
@@ -57,6 +68,10 @@ public class SmartLight {
     }
 
     public void setColor(Color color) {
-        this.color = color;
+
+        if(color == BLACK){
+            this.color = DARKGRAY;
+        }
+        else{this.color = color;}
     }
 }
